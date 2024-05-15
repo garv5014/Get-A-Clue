@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { ClueStorageServiceService } from './clue-storage.service';
+import { ClueStorageService } from './clue-storage.service';
 
 describe('ClueStorageServiceService', () => {
-  let service: ClueStorageServiceService;
+  let service: ClueStorageService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(ClueStorageServiceService);
+    service = TestBed.inject(ClueStorageService);
   });
 
   it('should be created', () => {

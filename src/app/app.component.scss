@@ -3,19 +3,6 @@
     top: 0;    
 }
 
-.my-container{
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    max-width: 1000px;
-    margin-bottom: 3rem;
-}
-
-.item-cards{
-    width: 50%;
-    margin: 1rem;
-}
-
 main {
     width: 100%;
     min-height: 100%;
@@ -23,6 +10,5 @@ main {
     justify-content: center;
     align-items: center;
     padding: 1rem;
-    box-sizing: inherit;
     position: relative;
   }
