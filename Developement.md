@@ -20,3 +20,38 @@
 - Don't lose the player data on page refresh, tab close or navigating away
 - Have responsive design ( Angular Material should be able to handle this)
 
+
+# Storing Data 
+
+- Using local storage to save the users current state will need to make a service that abstracts this away
+- Storing the information as json with the following shape 
+  ```ts
+    interface DeductionItem{
+        Name: string,
+        Status: DeductionStatus     
+    }
+    
+    enum DeductionStatus {
+        Unmarked,
+        Possible,
+        RuledOut,
+    }
+  ```
+
+
+
+
+  ```JSON
+    {
+        "Suspects": {
+            List<DeductionItemObjects>
+        },
+        "Weapons": {
+            List<DeductionItemObjects>
+        },
+        "Locations": {
+            List<DeductionItemObjects>
+        },
+    }
+
+  ```
