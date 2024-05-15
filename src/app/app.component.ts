@@ -27,12 +27,12 @@ export class AppComponent implements OnInit, AfterViewInit {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
     this._clueStorageService.initStorage();
-    this.gameState = this._clueStorageService.getClueState();
     console.log(this.gameState);
   }
-
+  
   ngAfterViewInit(): void {
     //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
     //Add 'implements AfterViewInit' to the class.
+    this.gameState = this._clueStorageService.getClueState();
   }
 }

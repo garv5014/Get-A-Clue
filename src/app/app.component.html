@@ -173,7 +173,7 @@
     <h1>Get A Clue</h1>
   </mat-toolbar>
   <mat-card>
-    <mat-card-header> Suspects </mat-card-header>
+    <mat-card-header> <h2>Suspects</h2> </mat-card-header>
     <mat-card-content>
       <span *ngFor="let item of gameState.Suspects">
         <p>
@@ -183,7 +183,9 @@
     </mat-card-content>
   </mat-card>
   <mat-card>
-    <mat-card-header> Weapons </mat-card-header>
+    <mat-card-header>
+      <h2>Weapons</h2>
+    </mat-card-header>
     <mat-card-content>
       <span *ngFor="let item of gameState.Weapons">
         <p>
@@ -193,7 +195,7 @@
     </mat-card-content>
   </mat-card>
   <mat-card>
-    <mat-card-header> Locations </mat-card-header>
+    <mat-card-header> <h2>Locations</h2> </mat-card-header>
     <mat-card-content>
       <span *ngFor="let item of gameState.Locations">
         <p>
