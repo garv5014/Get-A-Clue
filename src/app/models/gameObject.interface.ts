@@ -1,7 +1,7 @@
 import { DeductionItem } from './deductionItems.interface';
 
 export interface gameObject {
-  Suspects: [DeductionItem];
-  Weapons: [DeductionItem];
-  Locations: [DeductionItem];
+  Weapons: Array<DeductionItem>;
+  Locations: Array<DeductionItem>;
+  Suspects: Array<DeductionItem>;
 }

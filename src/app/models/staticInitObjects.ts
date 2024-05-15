@@ -1,7 +1,8 @@
 import { DeductionItem } from './deductionItems.interface';
 import { DeductionStatus } from './deductionStatus.enum';
+import { gameObject } from './gameObject.interface';
 
-export const InitItems = {
+export const InitItems: gameObject = {
   Weapons: [
     {
       Name: 'Knife',
