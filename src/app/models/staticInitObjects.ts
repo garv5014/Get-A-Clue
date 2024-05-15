@@ -1,0 +1,37 @@
+let weapons = [
+  'Knife',
+  'Candlestick',
+  'Revolver',
+  'Rope',
+  'Lead',
+  'Pipe',
+  'Wrench',
+  'Horseshoe',
+  'Poison',
+];
+let locations = [
+  'Gazebo',
+  'Courtyard',
+  'Fountain',
+  'Drawing Room',
+  'Library',
+  'Billiard Room',
+  'Dining Room',
+  'Kitchen',
+  'Studio',
+  'Conservatory',
+  'Trophy Room',
+  'Carriage House',
+];
+let suspects = [
+  'Miss Scarlet',
+  'Colonel Mustard',
+  'Mrs. White',
+  'Mr. Green',
+  'Mrs. Peacock',
+  'Professor Plum',
+  'Madame Rose',
+  'Monsieur Brunette',
+  'Miss Peach',
+  'Sergeant Gray',
+];

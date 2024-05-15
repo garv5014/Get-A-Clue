@@ -7,7 +7,7 @@ This application supports the following weapons, locations, and suspects
 ### Suspects 
 
 - Miss Scarlet
-- Colonel Mustard (Ret. D.S.O., B.E.F., Q.E.I.)
+- Colonel Mustard
 - Mrs. White
 - Mr. Green
 - Mrs. Peacock
