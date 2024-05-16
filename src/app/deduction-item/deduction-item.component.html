@@ -1,21 +1,19 @@
-<div class="row align-items-center">
-  <div class="col-sm-4 col-lg-4">
-    <h3>{{ this.name }}</h3>
-  </div>
-  <div class="col-sm-4 col-lg-6">
-    <mat-form-field>
-      <mat-label>Status</mat-label>
-      <mat-select
-        [(value)]="currentStatus"
-        (selectionChange)="selectionChange($event)"
-      >
-        @for (status of statuses; track $index) {
+<div
+  class="d-flex flex-wrap justify-content-center justify-content-sm-between align-items-center"
+>
+  <h3 style="width: 90px; margin-right: 10px">{{ this.name }}</h3>
+  <mat-form-field>
+    <mat-label>Status</mat-label>
+    <mat-select
+      [(value)]="currentStatus"
+      (selectionChange)="selectionChange($event)"
+    >
+      @for (status of statuses; track $index) {
 
-        <mat-option [value]="status.value">
-          {{ status.viewValue }}
-        </mat-option>
-        }
-      </mat-select>
-    </mat-form-field>
-  </div>
+      <mat-option [value]="status.value">
+        {{ status.viewValue }}
+      </mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
 </div>
