@@ -1,10 +1,12 @@
-<div class="row align-items-center">
-  <div class="col">
+<div class="row align-items-center" style="width: fit-content">
+  <div class="col-sm-4 col-lg-5">
     <h3>{{ this.name }}</h3>
   </div>
-  <div class="col">
+  <div class="col-sm-4 col-lg-6 col-auto">
     <mat-form-field>
+      <mat-label>Status</mat-label>
       <mat-select
+        style="width: 75px"
         [(value)]="currentStatus"
         (selectionChange)="selectionChange($event)"
       >
