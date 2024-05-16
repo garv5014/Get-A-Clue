@@ -2,7 +2,9 @@
   class="d-flex flex-wrap justify-content-between justify-content-sm-between align-items-center"
 >
   <h3 style="margin-right: 10px">{{ this.name }}</h3>
-  <mat-form-field style="width: 50%">
+  <mat-form-field style="width: 50%"
+    [color]="formColor"
+  >
     <mat-label>Status</mat-label>
     <mat-select
       [(value)]="currentStatus"
