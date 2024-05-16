@@ -46,8 +46,6 @@ export class DeductionItemComponent {
     newStatus: DeductionStatus;
   }>();
 
-  selectorControl = new FormControl('primary' as ThemePalette);
-
   getColor(newStatus: DeductionStatus) {
     switch (newStatus) {
       case DeductionStatus.NotSeen:
@@ -61,7 +59,9 @@ export class DeductionItemComponent {
     }
     return 'primary' as ThemePalette;
   }
+
   formColor = this.getColor(this.currentStatus);
+  
   selectionChange(event: any) {
     console.log(event);
     this.formColor = this.getColor(event.value);

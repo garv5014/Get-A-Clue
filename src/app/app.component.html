@@ -13,36 +13,42 @@
       class="d-flex flex-wrap justify-content-lg-evenly justify-content-sm-evenly align-items-center"
       style="width: 100%"
     >
-      <mat-card *ngFor="let category of categories" class="mb-3 mb-xxl-0">
-        <mat-card-header>
-          <h2>{{ category }}</h2>
-        </mat-card-header>
-        <mat-card-content>
-          <span *ngFor="let item of gameState[category]">
-            <app-deduction-item
-              [currentStatus]="item.Status"
-              [name]="item.Name"
-              [category]="category"
-              (statusUpdate)="onStatusUpdate($event)"
-            ></app-deduction-item>
-          </span>
-        </mat-card-content>
-      </mat-card>
+      <ng-container *ngFor="let category of categories">
+        <mat-card class="mb-3 mb-xxl-0">
+          <mat-card-header>
+            <h2>{{ category }}</h2>
+          </mat-card-header>
+          <mat-card-content>
+            <ng-container *ngFor="let item of gameState[category]">
+              <app-deduction-item
+                [currentStatus]="item.Status"
+                [name]="item.Name"
+                [category]="category"
+                (statusUpdate)="onStatusUpdate($event)"
+              ></app-deduction-item>
+            </ng-container>
+          </mat-card-content>
+        </mat-card>
+      </ng-container>
     </div>
     <div
       class="d-flex flex-wrap justify-content-lg-evenly justify-content-sm-evenly align-items-center"
       style="width: 100%"
     >
-      <div *ngFor="let category of categories">
-        <mat-list class="row">
-          <h2>{{ category + " Left" }}</h2>
-          <div class="h3" *ngFor="let item of gameState[category]">
-            <mat-list-item *ngIf="item.Status != 2">
-              {{ item.Name }}
-            </mat-list-item>
-          </div>
-        </mat-list>
-      </div>
+      <ng-container *ngFor="let category of categories">
+        <div>
+          <mat-list class="row">
+            <h2>{{ category + " Left" }}</h2>
+            <ng-container *ngFor="let item of gameState[category]">
+                <ng-container *ngIf="item.Status != 2">
+                  <mat-list-item>
+                    {{ item.Name }}
+                  </mat-list-item>
+                </ng-container>
+            </ng-container>
+          </mat-list>
+        </div>
+      </ng-container>
     </div>
   </div>
 </main>
