@@ -39,17 +39,18 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {}
 
-  onStatusUpdate(
-    itemName: string,
-    itemCategory: 'Suspects' | 'Weapons' | 'Locations',
-    status: DeductionStatus
-  ) {
+  onStatusUpdate(event: any) {
+    console.log(event);
     console.log(
-      `Status of ${itemCategory} new status of ${itemName} is ${status}`
+      `Status of ${event.itemCategory} new status of ${event.itemName} is ${event.newStatus}`
     );
 
     console.log('gameState' + this.gameState);
     console.log('storage' + this._clueStorageService);
-    this._clueStorageService.updateItem(itemName, itemCategory, status);
+    this._clueStorageService.updateItem(
+      event.itemName,
+      event.itemCategory,
+      event.newStatus
+    );
   }
 }

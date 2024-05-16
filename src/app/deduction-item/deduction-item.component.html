@@ -6,7 +6,7 @@
     <mat-form-field>
       <mat-select
         [(value)]="currentStatus"
-        (selectionChange)="selectionChange(name, currentStatus)"
+        (selectionChange)="selectionChange($event)"
       >
         @for (status of statuses; track $index) {
 

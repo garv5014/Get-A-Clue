@@ -15,7 +15,7 @@
               [currentStatus]="item.Status"
               [name]="item.Name"
               [category]="'Suspects'"
-              [updateStatus]="onStatusUpdate"
+              (statusUpdate)="onStatusUpdate($event)"
             ></app-deduction-item>
           </span>
         </mat-card-content>
@@ -30,7 +30,7 @@
               [currentStatus]="item.Status"
               [name]="item.Name"
               [category]="'Weapons'"
-              [updateStatus]="onStatusUpdate"
+              (statusUpdate)="onStatusUpdate($event)"
             ></app-deduction-item>
           </span>
         </mat-card-content>
@@ -43,7 +43,7 @@
               [currentStatus]="item.Status"
               [name]="item.Name"
               [category]="'Locations'"
-              [updateStatus]="onStatusUpdate"
+              (statusUpdate)="onStatusUpdate($event)"
             ></app-deduction-item>
           </span>
         </mat-card-content>

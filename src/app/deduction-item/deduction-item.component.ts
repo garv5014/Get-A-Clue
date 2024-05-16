@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { DeductionStatus } from '../models/deductionStatus.enum';
 import { MatSelectModule } from '@angular/material/select';
 import { FormsModule } from '@angular/forms';
@@ -39,17 +39,18 @@ export class DeductionItemComponent {
   })
   category!: 'Suspects' | 'Weapons' | 'Locations';
 
-  @Input({
-    required: true,
-  })
-  updateStatus!: (
-    itemName: string,
-    ItemCategory: 'Suspects' | 'Weapons' | 'Locations',
-    newStatus: DeductionStatus
-  ) => void;
+  @Output() statusUpdate = new EventEmitter<{
+    itemName: string;
+    itemCategory: 'Suspects' | 'Weapons' | 'Locations';
+    newStatus: DeductionStatus;
+  }>();
 
-  selectionChange(itemName: string, newStatus: DeductionStatus) {
+  selectionChange(event: any) {
     console.log(event);
-    this.updateStatus(itemName, this.category, newStatus);
+    this.statusUpdate.emit({
+      itemName: this.name,
+      itemCategory: this.category,
+      newStatus: event.value,
+    });
   }
 }
