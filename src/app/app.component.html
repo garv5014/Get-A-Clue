@@ -19,13 +19,15 @@
             <h2>{{ category }}</h2>
           </mat-card-header>
           <mat-card-content>
-            <ng-container *ngFor="let item of gameState[category]">
-              <app-deduction-item
+            <ng-container *ngIf="(gameState$ | async) as gameState">
+              <ng-container *ngFor="let item of gameState[category]">
+                <app-deduction-item
                 [currentStatus]="item.Status"
                 [name]="item.Name"
                 [category]="category"
                 (statusUpdate)="onStatusUpdate($event)"
-              ></app-deduction-item>
+                ></app-deduction-item>
+              </ng-container>
             </ng-container>
           </mat-card-content>
         </mat-card>
@@ -39,12 +41,14 @@
         <div>
           <mat-list class="row">
             <h2>{{ category + " Left" }}</h2>
-            <ng-container *ngFor="let item of gameState[category]">
+            <ng-container *ngIf="(gameState$ | async) as gameState">
+              <ng-container *ngFor="let item of gameState[category]">
                 <ng-container *ngIf="item.Status != 2">
                   <mat-list-item>
                     {{ item.Name }}
                   </mat-list-item>
                 </ng-container>
+              </ng-container>
             </ng-container>
           </mat-list>
         </div>

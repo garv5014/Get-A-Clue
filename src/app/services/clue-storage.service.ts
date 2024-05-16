@@ -2,15 +2,22 @@ import { Injectable } from '@angular/core';
 import { LocalStorageService } from './local-storage.service';
 import { InitItems } from '../models/staticInitObjects';
 import { gameObject } from '../models/gameObject.interface';
-import { throwError } from 'rxjs';
+import { BehaviorSubject, Observable, throwError } from 'rxjs';
 import { ItemCategories } from '../models/deductionItems.interface';
 import { DeductionStatus } from '../models/deductionStatus.enum';
 @Injectable({
   providedIn: 'root',
 })
 export class ClueStorageService {
+  private gameStateSubject: BehaviorSubject<gameObject> =
+    new BehaviorSubject<gameObject>({
+      Weapons: [],
+      Locations: [],
+      Suspects: [],
+    });
   constructor(private localStorage: LocalStorageService) {}
   itemKey = 'gameItems';
+
   initStorage() {
     try {
       let item = this.localStorage.tryGet(this.itemKey);
@@ -25,20 +32,11 @@ export class ClueStorageService {
   resetStorage() {
     console.log('here');
     this.localStorage.set(this.itemKey, InitItems);
+    this.gameStateSubject.next(InitItems);
   }
 
-  getClueState(): gameObject {
-    let item;
-    try {
-      let res = this.localStorage.tryGet(this.itemKey);
-      if (!res.success) {
-        throw new Error('Clue State not in memory');
-      }
-      item = res.value;
-    } catch (error) {
-      console.log('Error');
-    }
-    return item;
+  getClueState(): Observable<gameObject> {
+    return this.gameStateSubject.asObservable();
   }
 
   saveClueState(state: gameObject) {
@@ -55,7 +53,7 @@ export class ClueStorageService {
     newStatus: DeductionStatus
   ) {
     try {
-      let item = this.getClueState();
+      let item = this.gameStateSubject.getValue();
       let itemTypeList = item[itemType];
       let targetItemIndex = itemTypeList.findIndex((i) => i.Name === itemName);
       if (targetItemIndex == -1) {
@@ -63,6 +61,7 @@ export class ClueStorageService {
       }
       itemTypeList[targetItemIndex].Status = newStatus;
       this.saveClueState(item);
+      this.gameStateSubject.next(item);
     } catch (error) {
       console.log(`item ${itemName} could not be found in list of ${itemType}`);
     }
