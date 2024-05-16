@@ -52,3 +52,11 @@
     }
 
   ```
+
+# Deploy 
+
+### Setup 
+- Follow [this](https://www.linkedin.com/pulse/deploy-angular-app-github-pages-cli-dilakshan-antony-thevathas-octlc/)
+
+TL;DR:
+- Run This `ng deploy --base-href=https://garv5014.github.io/Get-A-Clue/`
