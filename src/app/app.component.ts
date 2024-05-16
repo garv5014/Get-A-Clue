@@ -23,12 +23,17 @@ import { ItemCategories } from './models/deductionItems.interface';
 })
 export class AppComponent implements OnInit, AfterViewInit {
   title = 'Get-A-Clue';
-
+  categories: Array<'Locations' | 'Weapons' | 'Suspects'> = [
+    'Locations',
+    'Weapons',
+    'Suspects',
+  ];
   gameState: gameObject = {
     Weapons: [],
     Locations: [],
     Suspects: [],
   };
+
   constructor(private _clueStorageService: ClueStorageService) {}
 
   ngOnInit(): void {
@@ -44,6 +49,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     console.log(
       `Status of ${event.itemCategory} new status of ${event.itemName} is ${event.newStatus}`
     );
+    this.gameState['Locations'];
 
     console.log('gameState' + this.gameState);
     console.log('storage' + this._clueStorageService);

@@ -7,42 +7,16 @@
       class="d-flex flex-wrap justify-content-lg-between justify-content-md-center align-items-center"
       style="width: 100%"
     >
-      <mat-card class="mb-sm-3">
-        <mat-card-header> <h2>Suspects</h2> </mat-card-header>
-        <mat-card-content>
-          <span *ngFor="let item of gameState.Suspects">
-            <app-deduction-item
-              [currentStatus]="item.Status"
-              [name]="item.Name"
-              [category]="'Suspects'"
-              (statusUpdate)="onStatusUpdate($event)"
-            ></app-deduction-item>
-          </span>
-        </mat-card-content>
-      </mat-card>
-      <mat-card class="mb-sm-3">
+      <mat-card *ngFor="let category of categories" class="mb-sm-3">
         <mat-card-header>
-          <h2>Weapons</h2>
+          <h2>{{ category }}</h2>
         </mat-card-header>
         <mat-card-content>
-          <span *ngFor="let item of gameState.Weapons">
+          <span *ngFor="let item of gameState[category]">
             <app-deduction-item
               [currentStatus]="item.Status"
               [name]="item.Name"
-              [category]="'Weapons'"
-              (statusUpdate)="onStatusUpdate($event)"
-            ></app-deduction-item>
-          </span>
-        </mat-card-content>
-      </mat-card>
-      <mat-card class="mb-sm-3">
-        <mat-card-header> <h2>Locations</h2> </mat-card-header>
-        <mat-card-content>
-          <span *ngFor="let item of gameState.Locations">
-            <app-deduction-item
-              [currentStatus]="item.Status"
-              [name]="item.Name"
-              [category]="'Locations'"
+              [category]="category"
               (statusUpdate)="onStatusUpdate($event)"
             ></app-deduction-item>
           </span>
