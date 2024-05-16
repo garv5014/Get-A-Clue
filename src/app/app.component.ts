@@ -6,8 +6,8 @@ import { ClueStorageService } from './services/clue-storage.service';
 import { gameObject } from './models/gameObject.interface';
 import { CommonModule } from '@angular/common';
 import { DeductionItemComponent } from './deduction-item/deduction-item.component';
-import { DeductionStatus } from './models/deductionStatus.enum';
-import { ItemCategories } from './models/deductionItems.interface';
+import { MatButtonModule } from '@angular/material/button';
+
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -19,6 +19,7 @@ import { ItemCategories } from './models/deductionItems.interface';
     CommonModule,
     MatCardModule,
     DeductionItemComponent,
+    MatButtonModule,
   ],
 })
 export class AppComponent implements OnInit, AfterViewInit {
@@ -39,6 +40,11 @@ export class AppComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
     this._clueStorageService.initStorage();
     console.log(this.gameState);
+    this.gameState = this._clueStorageService.getClueState();
+  }
+
+  resetCard() {
+    this._clueStorageService.resetStorage();
     this.gameState = this._clueStorageService.getClueState();
   }
 

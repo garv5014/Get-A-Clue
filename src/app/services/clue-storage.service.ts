@@ -15,11 +15,16 @@ export class ClueStorageService {
     try {
       let item = this.localStorage.tryGet(this.itemKey);
       if (!item.success) {
-        this.localStorage.set(this.itemKey, InitItems);
+        this.resetStorage();
       }
     } catch (error) {
       console.log('Error occurred on init ' + error);
     }
+  }
+
+  resetStorage() {
+    console.log('here');
+    this.localStorage.set(this.itemKey, InitItems);
   }
 
   getClueState(): gameObject {
