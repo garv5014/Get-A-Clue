@@ -7,6 +7,8 @@ import { gameObject } from './models/gameObject.interface';
 import { CommonModule } from '@angular/common';
 import { DeductionItemComponent } from './deduction-item/deduction-item.component';
 import { MatButtonModule } from '@angular/material/button';
+import { MatListModule } from '@angular/material/list';
+import { DeductionStatus } from './models/deductionStatus.enum';
 
 @Component({
   selector: 'app-root',
@@ -20,6 +22,7 @@ import { MatButtonModule } from '@angular/material/button';
     MatCardModule,
     DeductionItemComponent,
     MatButtonModule,
+    MatListModule,
   ],
 })
 export class AppComponent implements OnInit, AfterViewInit {
@@ -51,18 +54,12 @@ export class AppComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {}
 
   onStatusUpdate(event: any) {
-    console.log(event);
-    console.log(
-      `Status of ${event.itemCategory} new status of ${event.itemName} is ${event.newStatus}`
-    );
-    this.gameState['Locations'];
-
-    console.log('gameState' + this.gameState);
-    console.log('storage' + this._clueStorageService);
     this._clueStorageService.updateItem(
       event.itemName,
       event.itemCategory,
       event.newStatus
     );
+
+    this.gameState = this._clueStorageService.getClueState();
   }
 }

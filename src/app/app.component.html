@@ -29,6 +29,21 @@
         </mat-card-content>
       </mat-card>
     </div>
+    <div
+      class="d-flex flex-wrap justify-content-lg-evenly justify-content-sm-evenly align-items-center"
+      style="width: 100%"
+    >
+      <div *ngFor="let category of categories">
+        <mat-list class="row">
+          <h2>{{ category + " Left" }}</h2>
+          <div class="h3" *ngFor="let item of gameState[category]">
+            <mat-list-item *ngIf="item.Status != 2">
+              {{ item.Name }}
+            </mat-list-item>
+          </div>
+        </mat-list>
+      </div>
+    </div>
   </div>
 </main>
 
