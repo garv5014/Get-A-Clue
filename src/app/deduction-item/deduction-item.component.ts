@@ -24,7 +24,6 @@ export class DeductionItemComponent {
     { value: DeductionStatus.RuledOut, viewValue: 'Ruled Out' },
   ];
 
-  selected = this.statuses[0].value;
   @Input({
     required: true,
   })
@@ -35,6 +34,22 @@ export class DeductionItemComponent {
   })
   name!: string;
 
-  @Input()
-  updateStatus!: (newStatus: DeductionStatus) => void;
+  @Input({
+    required: true,
+  })
+  category!: 'Suspects' | 'Weapons' | 'Locations';
+
+  @Input({
+    required: true,
+  })
+  updateStatus!: (
+    itemName: string,
+    ItemCategory: 'Suspects' | 'Weapons' | 'Locations',
+    newStatus: DeductionStatus
+  ) => void;
+
+  selectionChange(itemName: string, newStatus: DeductionStatus) {
+    console.log(event);
+    this.updateStatus(itemName, this.category, newStatus);
+  }
 }

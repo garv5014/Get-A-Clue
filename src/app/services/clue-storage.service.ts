@@ -11,7 +11,7 @@ import { DeductionStatus } from '../models/deductionStatus.enum';
 export class ClueStorageService {
   constructor(private localStorage: LocalStorageService) {}
   itemKey = 'gameItems';
-  initStorage = () => {
+  initStorage() {
     try {
       let item = this.localStorage.tryGet(this.itemKey);
       if (!item.success) {
@@ -20,9 +20,9 @@ export class ClueStorageService {
     } catch (error) {
       console.log('Error occurred on init ' + error);
     }
-  };
+  }
 
-  getClueState = (): gameObject => {
+  getClueState(): gameObject {
     let item;
     try {
       let res = this.localStorage.tryGet(this.itemKey);
@@ -34,33 +34,32 @@ export class ClueStorageService {
       console.log('Error');
     }
     return item;
-  };
+  }
 
-  saveClueState = (state: gameObject) => {
+  saveClueState(state: gameObject) {
     try {
       this.localStorage.set(this.itemKey, state);
     } catch (error) {
-      console.log("Error in saving clue state " + error);
+      console.log('Error in saving clue state ' + error);
     }
   }
 
-  updateItemInState = (
+  updateItem(
     itemName: string,
     itemType: 'Suspects' | 'Weapons' | 'Locations',
     newStatus: DeductionStatus
-  ) => {
+  ) {
     try {
       let item = this.getClueState();
       let itemTypeList = item[itemType];
-      let targetItemIndex = itemTypeList.findIndex(i => i.Name === itemName);
-      if(targetItemIndex == -1)
-        {
-          throw new Error("This is bad")
-        }
-      itemTypeList[targetItemIndex].Status = newStatus
+      let targetItemIndex = itemTypeList.findIndex((i) => i.Name === itemName);
+      if (targetItemIndex == -1) {
+        throw new Error('This is bad');
+      }
+      itemTypeList[targetItemIndex].Status = newStatus;
       this.saveClueState(item);
     } catch (error) {
-      console.log(`item ${itemName} could not be found in list of ${itemType}`)
+      console.log(`item ${itemName} could not be found in list of ${itemType}`);
     }
-  };
+  }
 }

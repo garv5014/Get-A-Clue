@@ -4,7 +4,10 @@
   </div>
   <div class="col">
     <mat-form-field>
-      <mat-select [(value)]="selected">
+      <mat-select
+        [(value)]="currentStatus"
+        (selectionChange)="selectionChange(name, currentStatus)"
+      >
         @for (status of statuses; track $index) {
 
         <mat-option [value]="status.value">

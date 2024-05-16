@@ -7,6 +7,7 @@ import { gameObject } from './models/gameObject.interface';
 import { CommonModule } from '@angular/common';
 import { DeductionItemComponent } from './deduction-item/deduction-item.component';
 import { DeductionStatus } from './models/deductionStatus.enum';
+import { ItemCategories } from './models/deductionItems.interface';
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -31,19 +32,24 @@ export class AppComponent implements OnInit, AfterViewInit {
   constructor(private _clueStorageService: ClueStorageService) {}
 
   ngOnInit(): void {
-    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-    //Add 'implements OnInit' to the class.
     this._clueStorageService.initStorage();
     console.log(this.gameState);
-  }
-
-  ngAfterViewInit(): void {
-    //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
-    //Add 'implements AfterViewInit' to the class.
     this.gameState = this._clueStorageService.getClueState();
   }
 
-  test = (t: DeductionStatus) => {
-    console.log(t);
-  };
+  ngAfterViewInit(): void {}
+
+  onStatusUpdate(
+    itemName: string,
+    itemCategory: 'Suspects' | 'Weapons' | 'Locations',
+    status: DeductionStatus
+  ) {
+    console.log(
+      `Status of ${itemCategory} new status of ${itemName} is ${status}`
+    );
+
+    console.log('gameState' + this.gameState);
+    console.log('storage' + this._clueStorageService);
+    this._clueStorageService.updateItem(itemName, itemCategory, status);
+  }
 }

@@ -14,7 +14,8 @@
             <app-deduction-item
               [currentStatus]="item.Status"
               [name]="item.Name"
-              (updateStatus)="(test)"
+              [category]="'Suspects'"
+              [updateStatus]="onStatusUpdate"
             ></app-deduction-item>
           </span>
         </mat-card-content>
@@ -28,7 +29,8 @@
             <app-deduction-item
               [currentStatus]="item.Status"
               [name]="item.Name"
-              (updateStatus)="(test)"
+              [category]="'Weapons'"
+              [updateStatus]="onStatusUpdate"
             ></app-deduction-item>
           </span>
         </mat-card-content>
@@ -40,7 +42,8 @@
             <app-deduction-item
               [currentStatus]="item.Status"
               [name]="item.Name"
-              (updateStatus)="(test)"
+              [category]="'Locations'"
+              [updateStatus]="onStatusUpdate"
             ></app-deduction-item>
           </span>
         </mat-card-content>
