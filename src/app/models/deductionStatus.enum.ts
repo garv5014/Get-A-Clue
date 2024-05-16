@@ -1,5 +1,5 @@
 export enum DeductionStatus {
-    Unmarked,
-    Possible,
-    RuledOut,
+  NotSeen,
+  Possible,
+  RuledOut,
 }

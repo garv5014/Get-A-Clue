@@ -11,9 +11,11 @@
         <mat-card-header> <h2>Suspects</h2> </mat-card-header>
         <mat-card-content>
           <span *ngFor="let item of gameState.Suspects">
-            <p>
-              {{ item.Name }}
-            </p>
+            <app-deduction-item
+              [currentStatus]="item.Status"
+              [name]="item.Name"
+              (updateStatus)="(test)"
+            ></app-deduction-item>
           </span>
         </mat-card-content>
       </mat-card>
@@ -23,9 +25,11 @@
         </mat-card-header>
         <mat-card-content>
           <span *ngFor="let item of gameState.Weapons">
-            <p>
-              {{ item.Name }}
-            </p>
+            <app-deduction-item
+              [currentStatus]="item.Status"
+              [name]="item.Name"
+              (updateStatus)="(test)"
+            ></app-deduction-item>
           </span>
         </mat-card-content>
       </mat-card>
@@ -33,9 +37,11 @@
         <mat-card-header> <h2>Locations</h2> </mat-card-header>
         <mat-card-content>
           <span *ngFor="let item of gameState.Locations">
-            <p>
-              {{ item.Name }}
-            </p>
+            <app-deduction-item
+              [currentStatus]="item.Status"
+              [name]="item.Name"
+              (updateStatus)="(test)"
+            ></app-deduction-item>
           </span>
         </mat-card-content>
       </mat-card>

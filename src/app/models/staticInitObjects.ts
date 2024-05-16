@@ -6,131 +6,131 @@ export const InitItems: gameObject = {
   Weapons: [
     {
       Name: 'Knife',
-      Status: DeductionStatus.Unmarked,
+      Status: DeductionStatus.NotSeen,
     },
     {
       Name: 'Candlestick',
-      Status: DeductionStatus.Unmarked,
+      Status: DeductionStatus.NotSeen,
     },
     {
       Name: 'Revolver',
-      Status: DeductionStatus.Unmarked,
+      Status: DeductionStatus.NotSeen,
     },
     {
       Name: 'Rope',
-      Status: DeductionStatus.Unmarked,
+      Status: DeductionStatus.NotSeen,
     },
     {
       Name: 'Lead',
-      Status: DeductionStatus.Unmarked,
+      Status: DeductionStatus.NotSeen,
     },
     {
       Name: 'Pipe',
-      Status: DeductionStatus.Unmarked,
+      Status: DeductionStatus.NotSeen,
     },
     {
       Name: 'Wrench',
-      Status: DeductionStatus.Unmarked,
+      Status: DeductionStatus.NotSeen,
     },
     {
       Name: 'Horseshoe',
-      Status: DeductionStatus.Unmarked,
+      Status: DeductionStatus.NotSeen,
     },
     {
       Name: 'Poison',
-      Status: DeductionStatus.Unmarked,
+      Status: DeductionStatus.NotSeen,
     },
   ] as Array<DeductionItem>,
   Locations: [
     {
       Name: 'Gazebo',
-      Status: DeductionStatus.Unmarked,
+      Status: DeductionStatus.NotSeen,
     },
     {
       Name: 'Courtyard',
-      Status: DeductionStatus.Unmarked,
+      Status: DeductionStatus.NotSeen,
     },
     {
       Name: 'Fountain',
-      Status: DeductionStatus.Unmarked,
+      Status: DeductionStatus.NotSeen,
     },
     {
       Name: 'Drawing Room',
-      Status: DeductionStatus.Unmarked,
+      Status: DeductionStatus.NotSeen,
     },
     {
       Name: 'Library',
-      Status: DeductionStatus.Unmarked,
+      Status: DeductionStatus.NotSeen,
     },
     {
       Name: 'Billiard Room',
-      Status: DeductionStatus.Unmarked,
+      Status: DeductionStatus.NotSeen,
     },
     {
       Name: 'Dining Room',
-      Status: DeductionStatus.Unmarked,
+      Status: DeductionStatus.NotSeen,
     },
     {
       Name: 'Kitchen',
-      Status: DeductionStatus.Unmarked,
+      Status: DeductionStatus.NotSeen,
     },
     {
       Name: 'Studio',
-      Status: DeductionStatus.Unmarked,
+      Status: DeductionStatus.NotSeen,
     },
     {
       Name: 'Conservatory',
-      Status: DeductionStatus.Unmarked,
+      Status: DeductionStatus.NotSeen,
     },
     {
       Name: 'Trophy Room',
-      Status: DeductionStatus.Unmarked,
+      Status: DeductionStatus.NotSeen,
     },
     {
       Name: 'Carriage House',
-      Status: DeductionStatus.Unmarked,
+      Status: DeductionStatus.NotSeen,
     },
   ] as Array<DeductionItem>,
   Suspects: [
     {
       Name: 'Miss Scarlet',
-      Status: DeductionStatus.Unmarked,
+      Status: DeductionStatus.NotSeen,
     },
     {
       Name: 'Colonel Mustard',
-      Status: DeductionStatus.Unmarked,
+      Status: DeductionStatus.NotSeen,
     },
     {
       Name: 'Mrs. White',
-      Status: DeductionStatus.Unmarked,
+      Status: DeductionStatus.NotSeen,
     },
     {
       Name: 'Mr. Green',
-      Status: DeductionStatus.Unmarked,
+      Status: DeductionStatus.NotSeen,
     },
     {
       Name: 'Mrs. Peacock',
-      Status: DeductionStatus.Unmarked,
+      Status: DeductionStatus.NotSeen,
     },
     {
       Name: 'Professor Plum',
-      Status: DeductionStatus.Unmarked,
+      Status: DeductionStatus.NotSeen,
     },
     {
       Name: 'Madame Rose',
-      Status: DeductionStatus.Unmarked,
+      Status: DeductionStatus.NotSeen,
     },
     {
       Name: 'Monsieur Brunette',
-      Status: DeductionStatus.Unmarked,
+      Status: DeductionStatus.NotSeen,
     },
     {
       Name: 'Miss Peach',
-      Status: DeductionStatus.Unmarked,
+      Status: DeductionStatus.NotSeen,
     },
     {
       Name: 'Sergeant Gray',
-      Status: DeductionStatus.Unmarked,
+      Status: DeductionStatus.NotSeen,
     },
   ] as Array<DeductionItem>,
 };
