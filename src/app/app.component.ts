@@ -9,7 +9,7 @@ import { DeductionItemComponent } from './deduction-item/deduction-item.componen
 import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
 import { DeductionStatus } from './models/deductionStatus.enum';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -34,13 +34,21 @@ export class AppComponent implements OnInit, AfterViewInit {
     'Suspects',
   ];
   gameState$:Observable<gameObject>;
+  gameStateValue: gameObject = {
+    Weapons:[],
+    Locations: [],
+    Suspects: []
+  };
   
   constructor(private _clueStorageService: ClueStorageService) {
+    this._clueStorageService.initStorage();
     this.gameState$ = this._clueStorageService.getClueState();
   }
   
   ngOnInit(): void {
-    this._clueStorageService.initStorage();
+    this.gameState$.subscribe( res => {
+      this.gameStateValue = res;
+    })
   }
 
   resetCard() {

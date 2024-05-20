@@ -9,13 +9,15 @@ import { DeductionStatus } from '../models/deductionStatus.enum';
   providedIn: 'root',
 })
 export class ClueStorageService {
-  private gameStateSubject: BehaviorSubject<gameObject> =
+  private gameStateSubject: BehaviorSubject<gameObject>;
+  constructor(private localStorage: LocalStorageService) {
+    this.gameStateSubject =
     new BehaviorSubject<gameObject>({
       Weapons: [],
       Locations: [],
       Suspects: [],
-    });
-  constructor(private localStorage: LocalStorageService) {}
+    })
+  }
   itemKey = 'gameItems';
 
   initStorage() {
@@ -23,6 +25,10 @@ export class ClueStorageService {
       let item = this.localStorage.tryGet(this.itemKey);
       if (!item.success) {
         this.resetStorage();
+      } else {
+        this.gameStateSubject.next(
+          item.value as gameObject
+        );
       }
     } catch (error) {
       console.log('Error occurred on init ' + error);
@@ -36,7 +42,7 @@ export class ClueStorageService {
   }
 
   getClueState(): Observable<gameObject> {
-    return this.gameStateSubject.asObservable();
+    return this.gameStateSubject.asObservable() as Observable<gameObject>;
   }
 
   saveClueState(state: gameObject) {
